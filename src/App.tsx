@@ -1,4 +1,4 @@
-import { PrismaHero } from './components/prisma-hero'
+import { PrismaHero } from './components/ui/prisma-hero'
 
 export default function App() {
   return <PrismaHero />

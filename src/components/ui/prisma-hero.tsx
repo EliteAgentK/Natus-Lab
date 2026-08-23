@@ -6,14 +6,14 @@ import type { CSSProperties } from 'react'
 interface WordsPullUpProps {
   text: string
   className?: string
-  showAsterisk?: boolean
+  showStar?: boolean
   style?: CSSProperties
 }
 
 export const WordsPullUp = ({
   text,
   className = '',
-  showAsterisk = false,
+  showStar = false,
   style,
 }: WordsPullUpProps) => {
   const ref = useRef<HTMLDivElement>(null)
@@ -34,8 +34,13 @@ export const WordsPullUp = ({
             style={{ marginRight: isLast ? 0 : '0.25em' }}
           >
             {word}
-            {showAsterisk && isLast && (
-              <span className="absolute top-[0.65em] -right-[0.3em] text-[0.31em]">*</span>
+            {showStar && isLast && (
+              <span
+                aria-hidden="true"
+                className="absolute top-[0.52em] -right-[0.26em] text-[0.24em] leading-none"
+              >
+                ✦
+              </span>
             )}
           </motion.span>
         )
@@ -115,8 +120,8 @@ const PrismaHero = () => (
       <div className="absolute inset-x-0 bottom-0 px-4 pb-4 sm:px-6 md:px-10 md:pb-7">
         <div className="grid grid-cols-12 items-end gap-4">
           <div className="col-span-12 lg:col-span-8">
-            <h1 className="text-[22vw] font-medium leading-[0.85] tracking-[-0.07em] text-[#E1E0CC] sm:text-[20vw] md:text-[18vw] lg:text-[14vw] xl:text-[13vw] 2xl:text-[14vw]">
-              <WordsPullUp text="Natus" showAsterisk />
+            <h1 className="text-[22vw] font-medium leading-[0.85] tracking-[-0.07em] text-[#D2B06A] sm:text-[20vw] md:text-[18vw] lg:text-[14vw] xl:text-[13vw] 2xl:text-[14vw]">
+              <WordsPullUp text="Natus" showStar />
             </h1>
           </div>
 
